@@ -1,175 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Delivery App - Home</title>
-  <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-    crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery App - Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #ff6a00, #ff3c3c);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #ff6a00, #ff3c3c);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-    .navbar {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
+        .navbar {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-    .navbar-brand {
-      font-weight: 700;
-      color: #ffcc00 !important;
-      font-size: 1.5rem;
-    }
+        .navbar-brand {
+            font-weight: 700;
+            color: #ffcc00 !important;
+            font-size: 1.5rem;
+        }
 
-    .nav-link {
-      color: white !important;
-      font-weight: 500;
-      margin-left: 15px;
-    }
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin-left: 15px;
+        }
 
-    .nav-link:hover {
-      color: #ffcc00 !important;
-    }
+        .nav-link:hover {
+            color: #ffcc00 !important;
+        }
 
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 20px;
-      flex-wrap: wrap;
-    }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            flex-wrap: wrap;
+        }
 
-    .hero .left {
-      flex: 1;
-      min-width: 300px;
-    }
+        .hero .left {
+            flex: 1;
+            min-width: 300px;
+        }
 
-    .hero .right {
-      flex: 1;
-      text-align: center;
-    }
+        .hero .right {
+            flex: 1;
+            text-align: center;
+        }
 
-    .hero img {
-      width: 300px;
-      animation: bounce 3s ease-in-out infinite;
-    }
+        .hero img {
+            width: 300px;
+            animation: bounce 3s ease-in-out infinite;
+        }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
+        @keyframes bounce {
 
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #ffcc00;
-      text-shadow: 0px 0px 10px #ffcc00;
-    }
+            0%,
+            100% {
+                transform: translateY(0);
+            }
 
-    .hero p {
-      font-size: 1.1rem;
-      margin: 20px 0;
-    }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
 
-    .btn-custom {
-      background: linear-gradient(135deg, #ffcc00, #ff9900);
-      border: none;
-      border-radius: 12px;
-      color: #1a1a1a;
-      font-weight: 600;
-      padding: 12px 30px;
-      transition: 0.3s ease;
-    }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffcc00;
+            text-shadow: 0px 0px 10px #ffcc00;
+        }
 
-    .btn-custom:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(255, 204, 0, 0.6);
-    }
+        .hero p {
+            font-size: 1.1rem;
+            margin: 20px 0;
+        }
 
-    .categories, .menu-section {
-      padding: 60px 20px;
-      text-align: center;
-    }
+        .btn-custom {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            border: none;
+            border-radius: 12px;
+            color: #1a1a1a;
+            font-weight: 600;
+            padding: 12px 30px;
+            transition: 0.3s ease;
+        }
 
-    .categories h2, .menu-section h2 {
-      color: #ffcc00;
-      font-weight: 700;
-      margin-bottom: 40px;
-      text-shadow: 0px 0px 10px #ffcc00;
-    }
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 204, 0, 0.6);
+        }
 
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: white;
-      transition: 0.3s ease;
-    }
+        .categories,
+        .menu-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-    }
+        .categories h2,
+        .menu-section h2 {
+            color: #ffcc00;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-shadow: 0px 0px 10px #ffcc00;
+        }
 
-    .card img {
-      width: 100%;
-      border-radius: 15px;
-    }
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: 0.3s ease;
+        }
 
-    footer {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-    }
-  </style>
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
 </head>
+
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">🍔 DeliveryApp</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-      data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">☰</span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="#" onclick="homePage()">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" onclick="menuPage()">Menu</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Orders</a></li>
-        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-      </ul>
-    </div>
-  </nav>
-  
-  <!-- Content -->
-  <main id="content"></main>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">🍔 DeliveryApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">☰</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#" onclick="homePage()">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="menuPage()">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="getDogImage()">Orders</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <footer>
-    <p>&copy; 2025 QuickDrop. All Rights Reserved.</p>
-  </footer>
+    <main id="content"></main>
 
-<script>
-  const content = document.getElementById('content');
+    <footer>
+        <p>&copy; 2025 QuickDrop. All Rights Reserved.</p>
+    </footer>
 
-  function homePage() {
-    content.innerHTML = `
+    <script>
+        const content = document.getElementById('content');
+
+        function homePage() {
+            content.innerHTML = `
       <section class="hero container">
         <div class="left">
           <h1>Fast, Fresh & Delivered to You!</h1>
@@ -207,10 +214,10 @@
           </div>
         </div>
       </section>`;
-  }
+        }
 
-  function menuPage() {
-    content.innerHTML = `
+        function menuPage() {
+            content.innerHTML = `
       <section class="menu-section container">
         <h2>Burgers</h2>
         <div class="row">
@@ -288,8 +295,11 @@
           </div>
         </div>
       </section>`;
-  }
-  homePage();
-</script>
+        }
+        homePage();
+
+
+    </script>
 </body>
+
 </html>
