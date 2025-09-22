@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery App</title>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ff6a00, #ff3c3c);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      color: #ffcc00 !important;
+      font-size: 1.5rem;
+    }
+    .nav-link {
+      color: white !important;
+      font-weight: 500;
+      margin-left: 15px;
+    }
+    .nav-link:hover {
+      color: #ffcc00 !important;
+    }
+
+    /* Shared Section Styling */
+    .hero, .menu-section, .orders {
+      padding: 60px 20px;
+    }
+
+    .hero h1, .categories h2, .menu-section h2, .orders h2 {
+      color: #ffcc00;
+      font-weight: 700;
+      text-shadow: 0px 0px 10px #ffcc00;
+    }
+
+    .btn-custom {
+      background: linear-gradient(135deg, #ffcc00, #ff9900);
+      border: none;
+      border-radius: 12px;
+      color: #1a1a1a;
+      font-weight: 600;
+      padding: 10px 20px;
+      transition: 0.3s ease;
+    }
+    .btn-custom:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 204, 0, 0.6);
+    }
+
+    /* Card Styling */
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Orders */
+    .order-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: 0.3s;
+    }
+    .order-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    }
+    .status {
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      display: inline-block;
+    }
+    .status-pending { background: #ffcc00; color: #1a1a1a; }
+    .status-preparing { background: #007bff; }
+    .status-out { background: #17a2b8; }
+    .status-delivered { background: #28a745; }
+
+    footer {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">🍔 DeliveryApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">☰</span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="#" onclick="homePage()">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="menuPage()">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="ordersPage()">Orders</a></li>
+        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Main Container -->
+  <main id="content" class="container"></main>
+
+  <footer>
+    <p>&copy; 2025 QuickDrop. All Rights Reserved.</p>
+  </footer>
+
+<script>
+let content = document.getElementById('content');
+
+// HOME PAGE
+function homePage(){
+  content.innerHTML = `
+  <section class="hero row align-items-center">
+    <div class="col-md-6">
+      <h1>Fast, Fresh & Delivered to You!</h1>
+      <p>Order your favorite meals, groceries, and drinks in just a few clicks. 🚀</p>
+      <a href="#" class="btn btn-custom">Order Now</a>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png" class="img-fluid" style="max-width:300px;">
+    </div>
+  </section>
+
+  <section class="categories text-center">
+    <h2>Popular Categories</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card p-4">
+          <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" style="width:80px;">
+          <h5>Food</h5>
+          <p>Delicious meals from your favorite restaurants.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card p-4">
+          <img src="https://cdn-icons-png.flaticon.com/512/3082/3082031.png" style="width:80px;">
+          <h5>Groceries</h5>
+          <p>Fresh groceries and daily essentials delivered fast.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card p-4">
+          <img src="https://cdn-icons-png.flaticon.com/512/1046/1046786.png" style="width:80px;">
+          <h5>Drinks</h5>
+          <p>Refreshing beverages anytime, anywhere.</p>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+// MENU PAGE
+function menuPage(){
+  content.innerHTML = `
+  <section class="menu-section">
+    <h2 class="text-center mb-4">Our Menu</h2>
+    <h3>Burgers</h3>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" class="card-img-top">
+          <div class="card-body text-center">
+            <h5>Classic Cheeseburger</h5>
+            <p>$5.99</p>
+            <button class="btn btn-custom">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1550317138-10000687a72b" class="card-img-top">
+          <div class="card-body text-center">
+            <h5>Double Beef Burger</h5>
+            <p>$7.99</p>
+            <button class="btn btn-custom">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Pizzas</h3>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1601924638867-3ec9f43e3e05" class="card-img-top">
+          <div class="card-body text-center">
+            <h5>Margherita Pizza</h5>
+            <p>$8.99</p>
+            <button class="btn btn-custom">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1548365328-9adf8d1f3f88" class="card-img-top">
+          <div class="card-body text-center">
+            <h5>Pepperoni Pizza</h5>
+            <p>$9.99</p>
+            <button class="btn btn-custom">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+// ORDERS PAGE
+function ordersPage(){
+  content.innerHTML = `
+  <section class="orders">
+    <h2>My Orders</h2>
+
+    <div class="order-card row align-items-center">
+      <div class="col-md-2">
+        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" class="img-fluid rounded">
+      </div>
+      <div class="col-md-6">
+        <h5>Classic Cheeseburger</h5>
+        <p>Qty: 2 • Total: $11.98</p>
+        <span class="status status-preparing">Preparing</span>
+      </div>
+      <div class="col-md-4 text-right">
+        <button class="btn btn-custom">Track Order</button>
+      </div>
+    </div>
+
+    <div class="order-card row align-items-center">
+      <div class="col-md-2">
+        <img src="https://images.unsplash.com/photo-1601924638867-3ec9f43e3e05" class="img-fluid rounded">
+      </div>
+      <div class="col-md-6">
+        <h5>Margherita Pizza</h5>
+        <p>Qty: 1 • Total: $8.99</p>
+        <span class="status status-out">Out for Delivery</span>
+      </div>
+      <div class="col-md-4 text-right">
+        <button class="btn btn-custom">Track Order</button>
+      </div>
+    </div>
+
+    <div class="order-card row align-items-center">
+      <div class="col-md-2">
+        <img src="https://images.unsplash.com/photo-1617196039407-7d47cebb6a77" class="img-fluid rounded">
+      </div>
+      <div class="col-md-6">
+        <h5>Fresh Lemonade</h5>
+        <p>Qty: 3 • Total: $7.47</p>
+        <span class="status status-delivered">Delivered</span>
+      </div>
+      <div class="col-md-4 text-right">
+        <button class="btn btn-custom" disabled>Completed</button>
+      </div>
+    </div>
+  </section>`;
+}
+
+// Load Home by default
+homePage();
+</script>
+</body>
+</html>
+
