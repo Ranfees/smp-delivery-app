@@ -160,7 +160,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="#" onclick="homePage()">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" onclick="menuPage()">Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" onclick="getDogImage()">Orders</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="dogImage()">Dog</a></li>
                 <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
             </ul>
         </div>
@@ -295,6 +295,14 @@
           </div>
         </div>
       </section>`;
+        }
+
+        async function dogImage() {
+            let url = await fetch('https://dog.ceo/api/breeds/image/random')
+            let data = await url.json()
+            let img = data.message
+           
+            content.innerHTML = `<img src="${img}" style="width:60%; margin-left:25%;">`;
         }
         homePage();
 
